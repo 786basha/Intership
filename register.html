@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Internship</title>
+    <link rel="stylesheet" href="/register.css">
+</head>
+<body>
+    <h2>Register for Your Internship Opportunity</h2>
+    <form>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="uname" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="number">Mobile Number:</label>
+            <input type="mobile-numbr" id="number" name="number" required>
+        </div>
+        <div class="form-group">
+            <label for="university">University:</label>
+            <input type="text" id="university" name="university" required>
+        </div>
+        <div class="form-group">
+            <label for="specialization">B.Tech Specialization:</label>
+            <input type="text" id="specialization" name="specialization" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="software">Familiar Software:</label>
+            <input type="text" id="software" name="software">
+        </div>
+        <div class="form-group">
+            <label for="courses">Preferred Course(s):</label>
+            <select id="courses" name="courses" >
+                <option value="web-development">Web Development</option>
+                <option value="web-development">AI</option>
+                <option value="web-development">ML</option>
+                <option value="web-development">Computer Networks</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="motivation">Why Choose Our Platform?</label>
+            <textarea id="motivation" name="motivation"></textarea>
+        </div>
+        <button>Register Now!</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click',async function(e){
+
+            e.preventDefault();
+
+            let name=document.getElementById('uname').value;
+            let email = document.getElementById('email').value;
+            let number = document.getElementById('number').value;
+            let university = document.getElementById('university').value;
+    
+            let resp = await axios.post('/login',{name,email,number,university});
+
+        });
+        </script>
+</body>
+</html>

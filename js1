@@ -1,0 +1,63 @@
+
+
+const express = require('express');
+const app = express();
+
+// app.post('/register', async (req, res) => {
+//   // Access user data submitted from the form using req.body
+//   // ...
+//   const { name, email, university, specialization, skills, software, courses, motivation } = req.body;
+
+//     const user = new User({
+//         name,
+//         email,
+//         university,
+//         specialization,
+//         skills: skills.split(','), // Split comma-separated skills
+//         software: software.split(','), // Split comma-separated software
+//         courses,
+//         motivation,
+//     });
+
+//     try {
+//         await user.save();
+//         res.send({ message: 'Registration successful!' });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).send({ message: 'Registration failed!' });
+//     }
+  
+// });
+
+app.post('/register', async (req, res) => {
+    const { name, email, university, specialization, skills, software, courses, motivation } = req.body;
+    // ...
+    const user = new User({
+        name,
+        email,
+        university,
+        specialization,
+        skills: skills.split(','), // Split comma-separated skills
+        software: software.split(','), // Split comma-separated software
+        courses,
+        motivation,
+    });
+  });
+
+  app.get('/register', (req, res) => {
+    const { name, email } = req.body;
+    console.log(`New user registered!`);
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+    // ... Store user data in your database ...
+    res.send('Registration successful!');
+  });
+  
+
+  app.listen(3000, () => console.log('Server listening on port 3000'));
+
+
+
+;
+
+
